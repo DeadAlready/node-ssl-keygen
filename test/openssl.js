@@ -3,8 +3,9 @@
  */
 'use strict';
 
-require('child_process').exec('openssl', function(err, stdout, stderr){
+require('child_process').exec('echo "encode me" | openssl enc -base64', function(err, stdout, stderr){
   if(err){
     throw new Error('OpenSSL required for this module');
   }
+  process.exit();
 });
