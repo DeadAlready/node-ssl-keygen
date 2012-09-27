@@ -41,9 +41,9 @@ function assertPair(name, keyCreated, crtCreated){
   }
 }
 
-function _findFoldermap(){
+function _findFoldermap(module){
   var lvl = 0;
-  var p = path.relative(process.cwd(), require.resolve('foldermap')).split(path.sep);
+  var p = path.relative(process.cwd(), require.resolve(module)).split(path.sep);
   if(p[0] === '..'){
     lvl++;
   }
@@ -59,7 +59,7 @@ function _findFoldermap(){
 }
 
 // Create a Test Suite
-vows.describe('SSL-KeyChain').addBatch({
+vows.describe('SSL-KeyGen').addBatch({
   'RimRaf':{
     topic:function(){
       rimraf(folder,this.callback);
@@ -71,7 +71,7 @@ vows.describe('SSL-KeyChain').addBatch({
 }).addBatch({
   'Foldermap':{
     topic: function(){
-      require('child_process').exec('npm test foldermap', {cwd: _findFolderMapCWD }, this.callback);
+      require('child_process').exec('npm test foldermap', {cwd: _findCWD('foldermap') }, this.callback);
     },
     'foldermap working':function(err, stdout, stderr){
       assert.equal(err, null);
