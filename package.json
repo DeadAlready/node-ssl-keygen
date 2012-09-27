@@ -18,8 +18,8 @@
     "vows":"0.6.x"
   },
   "scripts":{
-    "preinstall":"test/openssl.js",
-    "test":"test/test.js"
+    "preinstall":"node test/openssl.js",
+    "test":"node test/test.js"
   },
   "optionalDependencies": {},
   "engines": {
