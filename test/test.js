@@ -41,7 +41,7 @@ function assertPair(name, keyCreated, crtCreated){
   }
 }
 
-function _findFoldermap(module){
+function _findCWD(module){
   var lvl = 0;
   var p = path.relative(process.cwd(), require.resolve(module)).split(path.sep);
   if(p[0] === '..'){
