@@ -1,8 +1,8 @@
 {
-  "author": "Karl Düüna <dead.already@itdragons.com>",
+  "author": "Karl Düüna <karl.dyyna@gmail.com>",
   "name": "ssl-keygen",
   "description": "OpenSSL Key Generation module",
-  "version": "0.0.7",
+  "version": "0.1.0",
   "private":false,
   "repository": {
     "type": "git",

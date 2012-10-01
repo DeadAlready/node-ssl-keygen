@@ -42,20 +42,27 @@ function assertPair(name, keyCreated, crtCreated){
 }
 
 function _findCWD(module){
-  var lvl = 0;
-  var p = path.relative(process.cwd(), require.resolve(module)).split(path.sep);
-  if(p[0] === '..'){
-    lvl++;
+  try{
+    var stats = fs.statSync('./node_modules/' + module);
+    return process.cwd();
+  } catch(e){
+    var lvl = 1;
+    var folderPath = '../' + module;
+    while(lvl < 10){
+      try{
+        var stats = fs.statSync(folderPath);
+        var folderMapCWD = process.cwd() + path.sep;
+        for(var i = 0; i < lvl; i++){
+          folderMapCWD += '..' + path.sep;
+        }
+        return path.resolve(folderMapCWD);
+      } catch(e){
+        folderPath = '..' + path.sep + '..' + path.sep + folderPath;
+        lvl = lvl + 2;
+      }
+    }
   }
-  var i = 0;
-  while(p[i] === '..'){
-    lvl++;
-  }
-  var folderMapCWD = process.cwd() + path.sep;
-  for(var i = 0; i <= lvl; i++){
-    folderMapCWD += '..' + path.sep;
-  }
-  return path.resolve(folderMapCWD);
+  return process.cwd();
 }
 
 // Create a Test Suite
@@ -75,7 +82,7 @@ vows.describe('SSL-KeyGen').addBatch({
     },
     'foldermap working':function(err, stdout, stderr){
       assert.equal(err, null);
-      assert.equal(stderr, null);
+      assert.equal(stderr, '');
     }
   }
 }).addBatch({
@@ -185,8 +192,9 @@ vows.describe('SSL-KeyGen').addBatch({
         keyGen.createSignRequest('test6', callback);
       });
     },
-    'signrequest was created': function(err){
+    'signrequest was created': function(err, crt){
       assert.equal(err, null);
+      assert.isObject(crt);
     },
     'sign no forcing': {
       topic: function(){
