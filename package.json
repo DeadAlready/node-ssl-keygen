@@ -2,7 +2,7 @@
   "author": "Karl Düüna <karl.dyyna@gmail.com>",
   "name": "ssl-keygen",
   "description": "OpenSSL Key Generation module",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private":false,
   "repository": {
     "type": "git",
@@ -12,7 +12,7 @@
   "dependencies": {
     "mkdirp": ">=0.3.3",
     "rimraf": ">=2.0.2",
-    "foldermap":">=0.0.6"
+    "foldermap":"0.1.x"
   },
   "devDependencies":{
     "vows":"0.6.x"
