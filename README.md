@@ -45,83 +45,83 @@ The following functions are available on the KeyGen object
 
 Function for creating a self signed CA
 
-@param {String} name certificate name
-@param {Boolean} [force=false] whether to force the creation
-@param {Function} callback
++ @param {String} name certificate name
++ @param {Boolean} [force=false] whether to force the creation
++ @param {Function} callback
 
 ### createCert
 
 Function for creating a cert from a key file
 
-@param {String} name name of key
-@param {Object} [ca=false] ca information, if none given a CA cert will be created
-@param {Boolean} [force=false] whether to force the creation
-@param {Function} callback
++ @param {String} name name of key
++ @param {Object} [ca=false] ca information, if none given a CA cert will be created
++ @param {Boolean} [force=false] whether to force the creation
++ @param {Function} callback
 
 ### createKey
 
 Function for creating a RSA key
 
-@param {String} name name of key
-@param {Boolean} [force=false] whether to force the creation
-@param {Function} callback
++ @param {String} name name of key
++ @param {Boolean} [force=false] whether to force the creation
++ @param {Function} callback
 
 ### createSelfSigned
 
 Function for creating a self signed keypair
 
-@param {String} name certificate name
-@param {Object} ca object containing ca information
-@param {Boolean} [force=false] force creation of keys?
-@param {Function} callback
++ @param {String} name certificate name
++ @param {Object} ca object containing ca information
++ @param {Boolean} [force=false] force creation of keys?
++ @param {Function} callback
 
 ### createSignRequest
 
 Function for creating a certificate signing request
 
-@param {String} name name of key
-@param {Function} callback
++ @param {String} name name of key
++ @param {Function} callback
 
 ### signCA
 
 Function for creating a CA cert from key
 
-@param {String} name name of key
-@param {Boolean} [force=false] whether to force the creation
-@param {Function} callback
++ @param {String} name name of key
++ @param {Boolean} [force=false] whether to force the creation
++ @param {Function} callback
 
 ### signRequest
 
 Function for signing a certificate signing request
 
-@param {String} name name of key
-@param {Object} ca ca information
-@param {Boolean} [force=false] whether to force the creation
-@param {Function} callback
++ @param {String} name name of key
++ @param {Object} ca ca information
++ @param {Boolean} [force=false] whether to force the creation
++ @param {Function} callback
 
 ### _keyPair
 
 Utility function returning an object containing absolute paths to keyfiles
 
-@param {String} name name of key
-@param {Boolean} [csr=false] wheter to return csr path
++ @param {String} name name of key
++ @param {Boolean} [csr=false] wheter to return csr path
 @return {Object}
 
 ### _subject
 
 Function returning the -subj part of openssl commands
 
-@param {String} name name of the certificate
++ @param {String} name name of the certificate
 @return {String}
 
 ### _sign
 
 Function for creating a cert from key by either signing a request or key
 
-@param {String} name name of key
-@param {Object} [ca=false] ca information, if none given a CA cert will be created
-@param {Boolean} [force=false] whether to force the creation
-@param {Function} callback
++ @param {String} name name of key
++ @param {Object} [ca=false] ca information, if none given a CA cert will be created
++ @param {Boolean} [force=false] whether to force the creation
++ @param {Function} callback
 
 ## License
 
